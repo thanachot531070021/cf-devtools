@@ -1,4 +1,4 @@
-import { getImage } from "./route/image";
+import { getImage , uploadImage} from "./route/image";
 interface Env {
   MY_BUCKET: R2Bucket;
 }
@@ -39,6 +39,10 @@ export default {
       return getImage(request, env);
     }
 	
+	 // Upload
+    if (url.pathname === "/api/upload" && method === "POST") {
+      return uploadImage(request, env);
+    }
 
 		return new Response("Hello Worker!");
 	},
