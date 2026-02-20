@@ -12,14 +12,29 @@
 	},
 	"compatibility_flags": [
 		"nodejs_compat"
-	]
-	,
+	],
 	"r2_buckets": [
     {
       "binding": "MY_BUCKET",
       "bucket_name": "my-bucket"
     }
-  ]
+  ],
+	"d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cf-devtools-db",
+      "database_id": "4a8eab62-631f-4480-bcfc-e8c6a7e3aa51"
+    }
+  ],
+	"kv_namespaces": [
+    {
+      "binding": "USERS_CACHE",
+      "id": "cd09db510f6545059121f1f633c6b7d9"
+    }
+  ],
+	"vars": {
+		"R2_DOMAIN": "https://pub-5996ee0506414893a70d525a21960eba.r2.dev"
+	}
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

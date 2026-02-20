@@ -1,6 +1,11 @@
 import { getImage , uploadImage} from "./route/image";
+import { handleUserRoutes } from "./routes/users";
+
 interface Env {
   MY_BUCKET: R2Bucket;
+  DB: D1Database;
+  USERS_CACHE: KVNamespace;
+  R2_DOMAIN: string;
 }
 
 export default {
@@ -43,6 +48,12 @@ export default {
     if (url.pathname === "/api/upload" && method === "POST") {
       return uploadImage(request, env);
     }
+
+	// User API Routes
+	const userResponse = await handleUserRoutes(request, env, url, method);
+	if (userResponse) {
+		return userResponse;
+	}
 
 		return new Response("Hello Worker!");
 	},
